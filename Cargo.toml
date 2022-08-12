@@ -1,0 +1,13 @@
+[package]
+name = "blockstorage"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wit-bindgen-rust = {git = "https://github.com/wasmerio/wit-bindgen.git", branch="silwol/memory_view" }
+
+[profile.release]
+lto = true

@@ -1,0 +1,7 @@
+name: func() -> string
+
+description: func() -> string
+
+version: func() -> s64
+
+permissions: func() -> list<string>
