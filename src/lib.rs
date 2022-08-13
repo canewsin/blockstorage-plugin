@@ -9,14 +9,37 @@ impl manifest::Manifest for Manifest {
     fn name() -> String {
         "Blockstorage".into()
     }
+
     fn description() -> String {
         "Blockstorage Plugin provides a common directory to store and retrive all ZeroNetX File, this will eliminate any duplicate files accross ZeroNet Sites".into()
     }
-    fn version() -> i64 {
+
+    fn version() -> String {
+        "0.0.1".into()
+    }
+
+    fn revision() -> i64 {
         0
     }
+
     fn permissions() -> Vec<String> {
         vec!["path_provider".into()]
+    }
+
+    fn min_engine_version() -> i64 {
+        0
+    }
+
+    fn max_engine_version() -> i64 {
+        i64::MAX
+    }
+
+    fn public_key() -> String {
+        "".into()
+    }
+
+    fn signature() -> String {
+        "".into()
     }
 }
 
