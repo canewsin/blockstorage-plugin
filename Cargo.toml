@@ -7,7 +7,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-wit-bindgen-rust = {git = "https://github.com/wasmerio/wit-bindgen.git", branch="silwol/memory_view" }
+wit-bindgen-rust = {git = "https://github.com/wasmerio/wit-bindgen.git", branch="wasmer" }
 
 [profile.release]
 lto = true
