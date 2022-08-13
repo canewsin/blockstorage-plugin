@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
 wit_bindgen_rust::export!("./assets/manifest.wit");
-wit_bindgen_rust::export!("./assets/filesystem.wit");
+wit_bindgen_rust::export!("./assets/path_provider.wit");
 
 struct Manifest();
 
@@ -16,13 +16,13 @@ impl manifest::Manifest for Manifest {
         0
     }
     fn permissions() -> Vec<String> {
-        vec![]
+        vec!["path_provider".into()]
     }
 }
 
-struct Filesystem();
+struct PathProvider();
 
-impl filesystem::Filesystem for Filesystem {
+impl path_provider::PathProvider for PathProvider {
     fn get_storage_path(data_path: String) -> String {
         let data_path = PathBuf::from(data_path);
         data_path.join("blockstorage").display().to_string()
@@ -40,12 +40,12 @@ impl filesystem::Filesystem for Filesystem {
 
 #[cfg(test)]
 mod tests {
-    use super::{filesystem::Filesystem, Filesystem as FilesystemTest};
+    use super::{path_provider::PathProvider as PathProviderImpl, PathProvider};
     use std::path::Path;
 
     #[test]
     fn test_get_block_storage_path() {
-        let block_storage_path: String = FilesystemTest::get_storage_path("data/path".into());
+        let block_storage_path: String = PathProvider::get_storage_path("data/path".into());
         assert_eq!(
             Path::new(&block_storage_path),
             Path::new("/tmp/data/blockstorage")
@@ -54,7 +54,7 @@ mod tests {
 
     #[test]
     fn test_get_block_file_path() {
-        let block_file_path = FilesystemTest::get_file_path("/tmp/data".into(), "block_id".into());
+        let block_file_path = PathProvider::get_file_path("/tmp/data".into(), "block_id".into());
         assert_eq!(
             Path::new(&block_file_path),
             Path::new("/tmp/data/blockstorage/block_id")
