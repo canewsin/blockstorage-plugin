@@ -25,22 +25,6 @@ impl manifest::Manifest for Manifest {
     fn permissions() -> Vec<String> {
         vec!["path_provider".into()]
     }
-
-    fn min_engine_version() -> i64 {
-        0
-    }
-
-    fn max_engine_version() -> i64 {
-        i64::MAX
-    }
-
-    fn public_key() -> String {
-        "".into()
-    }
-
-    fn signature() -> String {
-        "".into()
-    }
 }
 
 struct PathProvider();

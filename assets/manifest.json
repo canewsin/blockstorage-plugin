@@ -4,11 +4,10 @@
     "version": "1.0.0",
     "revision": 0,
     "permissions": [
-        "path_provider"
+        "path_provider@0.0.1"
     ],
-    "min_engine_version": 0,
-    "max_engine_version": 0,
-    "public_key": "",
-    "signature": "",
+    "signs": {
+        "": ""
+    },
     "plugin_signature": ""
 }
